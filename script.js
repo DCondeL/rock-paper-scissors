@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let optButtons = Array.from(document.querySelectorAll("button"));
 
 function getChoice(num) {
 	let choice;
@@ -19,6 +20,7 @@ function getChoice(num) {
 }
 
 function parseChoice(choice) {
+	choice = choice.toLowerCase();
 	switch (choice) {
 		case "rock":
 			return 1;
@@ -36,7 +38,7 @@ function getComputerChoice() {
 
 	choice = getChoice(randomN);
 
-	return choice;
+	return parseChoice(choice);
 }
 
 function getHumanChoice() {
@@ -47,9 +49,10 @@ function getHumanChoice() {
 	return choice;
 }
 
-function playRound(humanChoice, computerChoice) {
-	humanChoice = parseChoice(humanChoice);
-	computerChoice = parseChoice(computerChoice);
+function playRound(e) {
+	console.log("Launching play round" + e);
+	humanChoice = parseChoice(e.target.textContent);
+	computerChoice = getComputerChoice();
 
 	console.log("HumanChoice " + humanChoice);
 	console.log("ComputerChoice " + computerChoice);
@@ -95,8 +98,4 @@ function playRound(humanChoice, computerChoice) {
 	}
 }
 
-function playGame() {
-	playRound(getHumanChoice(), getComputerChoice());
-}
-
-playGame();
+optButtons.forEach((button) => button.addEventListener("click", playRound));
