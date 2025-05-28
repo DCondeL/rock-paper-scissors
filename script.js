@@ -1,6 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 let optButtons = Array.from(document.querySelectorAll("button"));
+let results = document.querySelector("results-container");
 
 function getChoice(num) {
 	let choice;
