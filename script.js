@@ -12,6 +12,7 @@ let gameResultText = document.querySelector("#game-result");
 
 let playerWins = "Player Wins!";
 let computerWins = "Computer Wins!";
+let draw = "Draw!";
 
 function getChoice(num) {
 	let choice;
@@ -73,7 +74,7 @@ function getHumanChoice() {
 
 function getRoundResult(humanChoice, computerChoice) {
 	if (humanChoice === computerChoice) {
-		return "Draw!";
+		return draw;
 	}
 
 	if (humanChoice == 1 && computerChoice != 2) {
@@ -107,6 +108,9 @@ function displayChoices(humanChoice, computerChoice) {
 }
 
 function updateScores(winner) {
+	if (winner.valueOf() === draw.valueOf()) {
+		return;
+	}
 	if (winner.valueOf() === computerWins.valueOf()) {
 		return computerScore++;
 	}
