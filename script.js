@@ -4,7 +4,6 @@ let optButtons = Array.from(document.querySelectorAll("button"));
 let roundResult = document.querySelector("#round-result");
 let playerChoiceText = document.querySelector("#player-choice");
 let computerChoiceText = document.querySelector("#computer-choice");
-let choicesText = document.querySelector("#choices";
 
 function getChoice(num) {
 	let choice;
@@ -35,6 +34,17 @@ function parseChoice(choice) {
 	}
 }
 
+function unparseChoice(choice) {
+	switch (choice) {
+		case 1:
+			return "rock";
+		case 2:
+			return "paper";
+		case 3:
+			return "scissors";
+	}
+}
+
 function getComputerChoice() {
 	let choice;
 
@@ -54,9 +64,6 @@ function getHumanChoice() {
 }
 
 function getRoundResult(humanChoice, computerChoice) {
-	console.log("HumanChoice " + humanChoice);
-	console.log("ComputerChoice " + computerChoice);
-
 	if (humanChoice === computerChoice) {
 		return "Draw!";
 	}
@@ -87,8 +94,8 @@ function getRoundResult(humanChoice, computerChoice) {
 }
 
 function displayChoices(humanChoice, computerChoice) {
-	playerChoiceText.textContent = humanChoice;
-	computerChoiceText.textContent = computerChoice;
+	playerChoiceText.textContent = unparseChoice(humanChoice);
+	computerChoiceText.textContent = unparseChoice(computerChoice);
 }
 
 function playRound(e) {
