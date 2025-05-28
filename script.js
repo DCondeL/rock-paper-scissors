@@ -4,6 +4,11 @@ let optButtons = Array.from(document.querySelectorAll("button"));
 let roundResult = document.querySelector("#round-result");
 let playerChoiceText = document.querySelector("#player-choice");
 let computerChoiceText = document.querySelector("#computer-choice");
+let computerScoreText = document.querySelector("#computer-score");
+let playerScoreText = document.querySelector("#player-score");
+
+let playerWins = "Player Wins!";
+let computerWins = "Computer Wins!";
 
 function getChoice(num) {
 	let choice;
@@ -70,32 +75,45 @@ function getRoundResult(humanChoice, computerChoice) {
 
 	if (humanChoice == 1 && computerChoice != 2) {
 		//humanScore++;
-		return "Human Wins!";
+		return playerWins;
 	} else if (humanChoice == 1) {
 		//computerScore++;
-		return "Computer wins!";
+		return computerWins;
 	}
 
 	if (humanChoice == 2 && computerChoice != 3) {
 		//humanScore++;
-		return "Humnan Wins";
+		return playerWins;
 	} else if (humanChoice == 2) {
 		//computerScore++;
-		return "Computer Wins";
+		return computerWins;
 	}
 
 	if (humanChoice == 3 && computerChoice != 1) {
 		//humanScore++;
-		return "Human Wins";
+		return playerWins;
 	} else {
 		//computerScore++;
-		return "Computer Wins";
+		return computerWins;
 	}
 }
 
 function displayChoices(humanChoice, computerChoice) {
 	playerChoiceText.textContent = unparseChoice(humanChoice);
 	computerChoiceText.textContent = unparseChoice(computerChoice);
+}
+
+function updateScores(winner) {
+	if (winner.valueOf() === computerWins.valueOf()) {
+		return computerScore++;
+	}
+
+	return humanScore++;
+}
+
+function updateDisplayScores() {
+	playerScoreText.textContent = humanScore;
+	computerScoreText.textContent = computerScore;
 }
 
 function playRound(e) {
@@ -105,6 +123,8 @@ function playRound(e) {
 	let roundWinner = getRoundResult(humanChoice, computerChoice);
 	roundResult.textContent = roundWinner;
 	displayChoices(humanChoice, computerChoice);
+	updateScores(roundWinner);
+	updateDisplayScores();
 }
 
 optButtons.forEach((button) => button.addEventListener("click", playRound));
