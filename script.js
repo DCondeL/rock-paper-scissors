@@ -1,11 +1,14 @@
 let humanScore = 0;
 let computerScore = 0;
+let roundsPlayed = 0;
+
 let optButtons = Array.from(document.querySelectorAll("button"));
 let roundResult = document.querySelector("#round-result");
 let playerChoiceText = document.querySelector("#player-choice");
 let computerChoiceText = document.querySelector("#computer-choice");
 let computerScoreText = document.querySelector("#computer-score");
 let playerScoreText = document.querySelector("#player-score");
+let gameResultText = document.querySelector("#game-result");
 
 let playerWins = "Player Wins!";
 let computerWins = "Computer Wins!";
@@ -116,6 +119,17 @@ function updateDisplayScores() {
 	computerScoreText.textContent = computerScore;
 }
 
+function displayOverallWinner() {
+	if (humanScore > computerScore) {
+		return (gameResultText.textContent = playerWins);
+	}
+	if (computerScore > humanScore) {
+		return (gameResultText.textContent = computerWins);
+	}
+
+	return "Its a Draw!";
+}
+
 function playRound(e) {
 	humanChoice = parseChoice(e.target.textContent);
 	computerChoice = getComputerChoice();
@@ -125,6 +139,10 @@ function playRound(e) {
 	displayChoices(humanChoice, computerChoice);
 	updateScores(roundWinner);
 	updateDisplayScores();
+	roundsPlayed++;
+	if (roundsPlayed === 5) {
+		displayOverallWinner();
+	}
 }
 
 optButtons.forEach((button) => button.addEventListener("click", playRound));
