@@ -9,6 +9,8 @@ let computerChoiceText = document.querySelector("#computer-choice");
 let computerScoreText = document.querySelector("#computer-score");
 let playerScoreText = document.querySelector("#player-score");
 let gameResultText = document.querySelector("#game-result");
+let choicesDiv = document.querySelector("#choices");
+let roundsDiv = document.querySelector("#rounds");
 
 let playerWins = "Player Wins!";
 let computerWins = "Computer Wins!";
@@ -134,6 +136,11 @@ function displayOverallWinner() {
 	return "Its a Draw!";
 }
 
+function hideFinalGameUI() {
+	roundsDiv.style.display = "none";
+	choicesDiv.style.display = "none";
+}
+
 function playRound(e) {
 	if (roundsPlayed === 5) {
 		return;
@@ -152,6 +159,7 @@ function playRound(e) {
 	roundsPlayed++;
 	if (roundsPlayed === 5) {
 		displayOverallWinner();
+		hideFinalGameUI();
 	}
 }
 
