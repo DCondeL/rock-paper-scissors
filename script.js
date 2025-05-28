@@ -135,6 +135,9 @@ function displayOverallWinner() {
 }
 
 function playRound(e) {
+	if (roundsPlayed === 5) {
+		return;
+	}
 	humanChoice = parseChoice(e.target.textContent);
 	computerChoice = getComputerChoice();
 
@@ -143,6 +146,9 @@ function playRound(e) {
 	displayChoices(humanChoice, computerChoice);
 	updateScores(roundWinner);
 	updateDisplayScores();
+	if (roundWinner.valueOf() === draw.valueOf()) {
+		return;
+	}
 	roundsPlayed++;
 	if (roundsPlayed === 5) {
 		displayOverallWinner();
