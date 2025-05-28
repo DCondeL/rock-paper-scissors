@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 let optButtons = Array.from(document.querySelectorAll("button"));
-let results = document.querySelector("results-container");
+let roundResult = document.querySelector("#round-result");
 
 function getChoice(num) {
 	let choice;
@@ -50,11 +50,7 @@ function getHumanChoice() {
 	return choice;
 }
 
-function playRound(e) {
-	console.log("Launching play round" + e);
-	humanChoice = parseChoice(e.target.textContent);
-	computerChoice = getComputerChoice();
-
+function getRoundResult(humanChoice, ComputerChoice) {
 	console.log("HumanChoice " + humanChoice);
 	console.log("ComputerChoice " + computerChoice);
 
@@ -97,6 +93,11 @@ function playRound(e) {
 		console.log("Human: " + humanScore + "\n" + "Compt: " + computerScore);
 		return;
 	}
+}
+
+function playRound(e) {
+	humanChoice = parseChoice(e.target.textContent);
+	computerChoice = getComputerChoice();
 }
 
 optButtons.forEach((button) => button.addEventListener("click", playRound));
