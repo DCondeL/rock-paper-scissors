@@ -2,6 +2,9 @@ let humanScore = 0;
 let computerScore = 0;
 let optButtons = Array.from(document.querySelectorAll("button"));
 let roundResult = document.querySelector("#round-result");
+let playerChoiceText = document.querySelector("#player-choice");
+let computerChoiceText = document.querySelector("#computer-choice");
+let choicesText = document.querySelector("#choices";
 
 function getChoice(num) {
 	let choice;
@@ -83,12 +86,18 @@ function getRoundResult(humanChoice, computerChoice) {
 	}
 }
 
+function displayChoices(humanChoice, computerChoice) {
+	playerChoiceText.textContent = humanChoice;
+	computerChoiceText.textContent = computerChoice;
+}
+
 function playRound(e) {
 	humanChoice = parseChoice(e.target.textContent);
 	computerChoice = getComputerChoice();
 
 	let roundWinner = getRoundResult(humanChoice, computerChoice);
 	roundResult.textContent = roundWinner;
+	displayChoices(humanChoice, computerChoice);
 }
 
 optButtons.forEach((button) => button.addEventListener("click", playRound));

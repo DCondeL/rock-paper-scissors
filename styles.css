@@ -31,6 +31,17 @@ body {
 	align-items: center;
 }
 
+.results-container div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.results-container span {
+	margin: 12px;
+}
+
 button {
 	padding: 15px 25px;
 	width: 100px;
