@@ -50,54 +50,45 @@ function getHumanChoice() {
 	return choice;
 }
 
-function getRoundResult(humanChoice, ComputerChoice) {
+function getRoundResult(humanChoice, computerChoice) {
 	console.log("HumanChoice " + humanChoice);
 	console.log("ComputerChoice " + computerChoice);
 
 	if (humanChoice === computerChoice) {
-		return console.log("Draw!");
+		return "Draw!";
 	}
 
 	if (humanChoice == 1 && computerChoice != 2) {
-		humanScore++;
-		console.log("Human Wins!");
-		console.log("Human: " + humanScore + "\n" + "Compt: " + computerScore);
-		return;
+		//humanScore++;
+		return "Human Wins!";
 	} else if (humanChoice == 1) {
-		computerScore++;
-		console.log("Computer wins!");
-		console.log("Human: " + humanScore + "\n" + "Compt: " + computerScore);
-		return;
+		//computerScore++;
+		return "Computer wins!";
 	}
 
 	if (humanChoice == 2 && computerChoice != 3) {
-		humanScore++;
-		console.log("Humnan Wins");
-		console.log("Human: " + humanScore + "\n" + "Compt: " + computerScore);
-		return;
+		//humanScore++;
+		return "Humnan Wins";
 	} else if (humanChoice == 2) {
-		computerScore++;
-		console.log("Computer Wins");
-		console.log("Human: " + humanScore + "\n" + "Compt: " + computerScore);
-		return;
+		//computerScore++;
+		return "Computer Wins";
 	}
 
 	if (humanChoice == 3 && computerChoice != 1) {
-		humanScore++;
-		console.log("Human Wins");
-		console.log("Human: " + humanScore + "\n" + "Compt: " + computerScore);
-		return;
+		//humanScore++;
+		return "Human Wins";
 	} else {
-		computerScore++;
-		console.log("Computer Wins");
-		console.log("Human: " + humanScore + "\n" + "Compt: " + computerScore);
-		return;
+		//computerScore++;
+		return "Computer Wins";
 	}
 }
 
 function playRound(e) {
 	humanChoice = parseChoice(e.target.textContent);
 	computerChoice = getComputerChoice();
+
+	let roundWinner = getRoundResult(humanChoice, computerChoice);
+	roundResult.textContent = roundWinner;
 }
 
 optButtons.forEach((button) => button.addEventListener("click", playRound));
