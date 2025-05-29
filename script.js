@@ -145,7 +145,7 @@ function playRound(e) {
 	if (roundsPlayed === 5) {
 		return;
 	}
-	humanChoice = parseChoice(e.target.textContent);
+	humanChoice = parseChoice(e.target.id);
 	computerChoice = getComputerChoice();
 
 	let roundWinner = getRoundResult(humanChoice, computerChoice);
