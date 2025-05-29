@@ -1,21 +1,41 @@
 body {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	min-height: 100dvh;
+	margin: 0;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	align-items: center;
 }
 
 .main-container {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	gap: 35px;
+	width: 55dvw;
 	flex-grow: 1;
-	max-width: 55dvw;
 }
+
+.header {
+	width: 100dvw;
+	height: 20dvh;
+	background-color: black;
+	background-size: cover;
+	background-position: center;
+	align-self: top;
+}
+
+img {
+	object-fit: cover;
+}
+
 .buttons-container {
 	display: flex;
 	gap: 25px;
-	flex-grow: 1;
 }
 
 .buttons-container div {
