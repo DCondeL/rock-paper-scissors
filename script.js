@@ -105,8 +105,12 @@ function getRoundResult(humanChoice, computerChoice) {
 }
 
 function displayChoices(humanChoice, computerChoice) {
-	playerChoiceText.textContent = unparseChoice(humanChoice);
-	computerChoiceText.textContent = unparseChoice(computerChoice);
+	let modifyFirstLetter = unparseChoice(humanChoice);
+	playerChoiceText.textContent =
+		modifyFirstLetter.charAt(0).toUpperCase() + modifyFirstLetter.slice(1);
+	modifyFirstLetter = unparseChoice(computerChoice);
+	computerChoiceText.textContent =
+		modifyFirstLetter.charAt(0).toUpperCase() + modifyFirstLetter.slice(1);
 }
 
 function updateScores(winner) {
