@@ -2,6 +2,8 @@ body {
 	display: flex;
 	min-height: 100dvh;
 	margin: 0;
+	background-color: #64e9ee;
+	color: #093a3e;
 }
 
 .container {
@@ -15,7 +17,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	gap: 35px;
+	gap: 20dvh;
 	width: 55dvw;
 	flex-grow: 1;
 }
@@ -23,10 +25,11 @@ body {
 .header {
 	width: 100dvw;
 	height: 20dvh;
-	background-color: black;
-	background-size: cover;
+	background-color: #97c8eb;
+	background-size: contain;
 	background-position: center;
-	align-self: top;
+	background-repeat: no-repeat;
+	background-image: url("assets/RockPaperScissorsLogo.png");
 }
 
 img {
@@ -46,10 +49,12 @@ img {
 }
 
 .results-container {
-	border: solid grey;
+	border-radius: 8px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-color: #97c8eb;
+	font-size: 1.5rem;
 }
 
 .results-container div {
@@ -64,30 +69,32 @@ img {
 }
 
 button {
-	padding: 15px 25px;
+	box-sizing: border-box;
+	padding: 15px;
+	background-origin: content-box;
+	background-repeat: no-repeat;
 	width: 100px;
 	height: 100px;
 	border: none;
 	cursor: pointer;
+	background-color: #3aafb9;
+	border-radius: 8px;
 }
 
 #rock {
 	background-image: url("/assets/rock.png");
-	background-size: cover;
-	background-color: transparent;
+	background-size: contain;
 	background-position: center;
 }
 
 #paper {
 	background-image: url("/assets/paper.png");
-	background-size: cover;
-	background-color: transparent;
+	background-size: contain;
 	background-position: center;
 }
 
 #scissors {
 	background-image: url("/assets/scissors.png");
-	background-size: cover;
-	background-color: transparent;
+	background-size: contain;
 	background-position: center;
 }
