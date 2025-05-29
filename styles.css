@@ -8,6 +8,7 @@ body {
 .main-container {
 	display: flex;
 	flex-direction: column;
+	gap: 35px;
 	flex-grow: 1;
 	max-width: 55dvw;
 }
@@ -45,5 +46,28 @@ body {
 button {
 	padding: 15px 25px;
 	width: 100px;
-	border-radius: 8px;
+	height: 100px;
+	border: none;
+	cursor: pointer;
+}
+
+#rock {
+	background-image: url("/assets/rock.png");
+	background-size: cover;
+	background-color: transparent;
+	background-position: center;
+}
+
+#paper {
+	background-image: url("/assets/paper.png");
+	background-size: cover;
+	background-color: transparent;
+	background-position: center;
+}
+
+#scissors {
+	background-image: url("/assets/scissors.png");
+	background-size: cover;
+	background-color: transparent;
+	background-position: center;
 }
